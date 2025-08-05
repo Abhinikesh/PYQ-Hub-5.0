@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - PYQ Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #f1f0f7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .support-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #667eea;
+        }
+
+        .contact-text {
+            font-size: 1rem;
+        }
+
+        .faq-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #667eea;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #764ba2;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .theme-toggle input[type="checkbox"] {
+            display: none;
+        }
+
+        .theme-toggle label {
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .theme-toggle label:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .support-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">←</button>
+    
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-toggle">
+        <label for="theme-toggle">🌙</label>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Support Center</h1>
+            <p>We're here to help you with any questions or concerns</p>
+        </div>
+
+        <div class="support-grid">
+            <div class="support-card">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-info">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-text">Email: support.abc@gmail.com</span>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">📞</span>
+                    <span class="contact-text">Phone: 9876543210</span>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">⏰</span>
+                    <span class="contact-text">Available: 24/7</span>
+                </div>
+            </div>
+
+            <div class="support-card">
+                <h2>🚀 Quick Help</h2>
+                <div class="contact-info">
+                    <span class="contact-icon">📚</span>
+                    <span class="contact-text">Upload PYQs and earn rewards</span>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">🔍</span>
+                    <span class="contact-text">Advanced search for specific topics</span>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">👥</span>
+                    <span class="contact-text">Join our community discussions</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I upload PYQs to earn rewards?</div>
+                <div class="faq-answer">Simply click on "Upload & Earn" in the dashboard, fill in the required details including your college name, and upload your PYQ files. You'll earn points for each successful upload!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What types of files can I upload?</div>
+                <div class="faq-answer">We accept PDF, DOC, DOCX, and image files (JPG, PNG) containing previous year question papers. Make sure the files are clear and readable.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does the advanced search work?</div>
+                <div class="faq-answer">Use the advanced search feature to find specific topics, subjects, or question types. You can filter by college, year, subject, and keywords to find exactly what you need.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I manually enter my college name?</div>
+                <div class="faq-answer">Yes! In the upload form, you can either select from the dropdown options or manually type your college name in the college field. We've added specific options for Manav Rachna institutions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I join the community discussions?</div>
+                <div class="faq-answer">Click on "Community" in the navigation to access our discussion forums. You can ask questions, share study tips, and connect with other students.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are the rewards for uploading PYQs?</div>
+                <div class="faq-answer">You earn points for each upload, which can be redeemed for various benefits. The more quality content you contribute, the more rewards you can unlock!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure?</div>
+                <div class="faq-answer">Absolutely! We use Firebase for secure authentication and data storage, and Cloudinary for safe image storage. Your personal information is protected.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can I get help with technical issues?</div>
+                <div class="faq-answer">For technical support, you can email us at support.abc@gmail.com or call us at 9876543210. Our support team is available 24/7 to assist you.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeLabel = document.querySelector('.theme-toggle label');
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                themeLabel.textContent = '🌞';
+                themeToggle.checked = true;
+            } else {
+                document.body.classList.remove('dark');
+                themeLabel.textContent = '🌙';
+                themeToggle.checked = false;
+            }
+            
+            // Theme toggle event
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark');
+                    themeLabel.textContent = '🌞';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.classList.remove('dark');
+                    themeLabel.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+
+        // Back button functionality
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html> 

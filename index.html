@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYQ Hub - Previous Year Questions</title>
+  <link rel="icon" href="pyq logo.jpg">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-icon">📚</div>
+        <span>PYQ Hub</span>
+      </div>
+      <ul class="nav-links">
+  
+  <a href="dashboard.html" class="dashboard-btn">Dashboard</a>
+  <a href="#" onclick="openUploadModal()" class="nav-link">Upload</a>
+  <a href="community.html" class="nav-link">Community</a>
+  <a href="login.html" class="nav-link">Login</a>
+
+        <li><button id="toggle-dark" class="nav-toggle">🌙</button></li>
+      </ul>
+    </nav>
+    
+    <!-- 🆘 Support Center -->
+    <div class="support-center-main">
+      <div class="support-icon-main">💬</div>
+      <div class="support-dropdown-main">
+        <div class="support-header-main">
+          <h3>Support Center</h3>
+          <p>Need help? We're here for you!</p>
+        </div>
+        <div class="support-options-main">
+          <a href="support.html" class="support-option-main">
+            <span class="support-icon-small-main">📧</span>
+            <span>Email Support</span>
+          </a>
+          <a href="support.html" class="support-option-main">
+            <span class="support-icon-small-main">📞</span>
+            <span>Live Chat</span>
+          </a>
+          <a href="support.html" class="support-option-main">
+            <span class="support-icon-small-main">❓</span>
+            <span>FAQ</span>
+          </a>
+          <a href="support.html" class="support-option-main">
+            <span class="support-icon-small-main">📚</span>
+            <span>Help Center</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Smart PYQ & Notes<br><span class="highlight">Sharing Platform</span></h1>
+      <p>Upload, discover, and share Previous Year Questions and study notes with AI-powered organization. Get rewarded for contributing to your academic community.</p>
+      <div class="hero-buttons">
+        <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+        <a href="dashboard.html" class="btn btn-secondary">Browse PYQs</a>
+        <button onclick="openUploadModal()" class="btn btn-primary">Upload PYQ</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+  <h2>What You'll Get Here</h2>
+  <div class="feature-grid">
+    <div class="feature-card" onclick="handleFeatureClick('upload')">
+      <h3>Upload & Earn</h3>
+      <p>Share PYQs and notes to earn rewards like points, badges, or cash.</p>
+      <div class="feature-options" id="upload-options" style="display: none;">
+        <button onclick="openUploadModal()">Upload PYQ</button>
+        <button onclick="window.location.href='dashboard.html'">View My Uploads</button>
+        <button onclick="window.location.href='support.html'">Learn More</button>
+      </div>
+    </div>
+    <div class="feature-card" onclick="handleFeatureClick('search')">
+      <h3>Advanced Search</h3>
+      <p>Quickly find content by year, subject, topic, and difficulty.</p>
+      <div class="feature-options" id="search-options" style="display: none;">
+        <button onclick="window.location.href='dashboard.html'">Search PYQs</button>
+        <button onclick="window.location.href='community.html'">Browse Community</button>
+        <button onclick="window.location.href='support.html'">Search Help</button>
+      </div>
+    </div>
+   <!--  <div class="feature-card">
+      <h3>AI Suggestions</h3>
+      <p>Get smart recommendations based on what you're studying.</p>
+    </div> -->
+    <div class="feature-card" onclick="handleFeatureClick('ai')">
+      <h3>AI Study Assistant</h3>
+      <p>Ask doubts, get summaries, and plan your studies with AI help.</p>
+      <div class="feature-options" id="ai-options" style="display: none;">
+                 <button onclick="window.location.href='chatbot.html'">Chat with AI</button>
+        <button onclick="window.location.href='support.html'">AI Help</button>
+        <button onclick="window.location.href='community.html'">Study Groups</button>
+      </div>
+    </div>
+    <div class="feature-card" onclick="handleFeatureClick('community')">
+      <h3>Community Driven</h3>
+      <p>Join a growing student community sharing quality resources.</p>
+      <div class="feature-options" id="community-options" style="display: none;">
+        <button onclick="window.location.href='community.html'">Join Community</button>
+        <button onclick="window.location.href='dashboard.html'">My Groups</button>
+        <button onclick="window.location.href='support.html'">Community Help</button>
+      </div>
+    </div>
+    <div class="feature-card" onclick="handleFeatureClick('rewards')">
+      <h3>Rewards & Badges</h3>
+      <p>Earn points and unlock badges or premium features as you contribute.</p>
+      <div class="feature-options" id="rewards-options" style="display: none;">
+        <button onclick="window.location.href='dashboard.html'">View Rewards</button>
+        <button onclick="window.location.href='support.html'">Rewards Guide</button>
+        <button onclick="window.location.href='community.html'">Leaderboard</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Ace Your Exams?</h2>
+      <p>Join thousands of students who are already using PYQ Hub to improve their grades</p>
+      <a href="signup.html" class="cta-btn">Join PYQ Hub Today</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <p>Crafted by Team 🔥 CyberPunks</p><br>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <p>© ExamGOAL 2025</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="uploadModal">
+    <div class="upload-modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Upload Previous Year Questions</h2>
+        <button class="close-btn" onclick="closeUploadModal()">×</button>
+      </div>
+      <form id="uploadForm">
+        <div class="form-group"><label class="form-label" for="title">Title</label><input type="text" id="title" class="form-input" placeholder="Enter pyq title..." required></div>
+        <div class="form-group"><label class="form-label" for="description">Description (Optional)</label><textarea id="description" class="form-input form-textarea" placeholder="Add any additional details..."></textarea></div>
+        <div class="form-group"><label class="form-label" for="college">College</label><select id="college" class="form-input form-select" required onchange="handleCollegeChange()"><option value="">Select college</option><option value="Manav Rachna University">Manav Rachna University</option><option value="Manav Rachna International Institute of Research and Studies">Manav Rachna International Institute of Research and Studies</option><option value="Manav Rachna Dental College">Manav Rachna Dental College</option><option value="IIT Delhi">IIT Delhi</option><option value="IIT Bombay">IIT Bombay</option><option value="IIT Madras">IIT Madras</option><option value="IIT Kanpur">IIT Kanpur</option><option value="IIT Kharagpur">IIT Kharagpur</option><option value="NIT Trichy">NIT Trichy</option><option value="NIT Surathkal">NIT Surathkal</option><option value="Other">Other</option></select><input type="text" id="college-custom" class="form-input" placeholder="Or type your college name" style="display: none; margin-top: 10px;"></div>
+        <div class="form-group"><label class="form-label" for="course">Course</label><select id="course" class="form-input form-select" required><option value="">Select course</option><option value="B.Tech">B.Tech</option><option value="M.Tech">M.Tech</option><option value="B.Sc">B.Sc</option><option value="M.Sc">M.Sc</option><option value="BBA">BBA</option><option value="MBA">MBA</option><option value="Other">Other</option></select></div>
+        <div class="form-group"><label class="form-label" for="subject">Subject</label><input type="text" id="subject" class="form-input" placeholder="e.g., Data Structure" required></div>
+        <div class="form-group"><label class="form-label" for="year">Year</label><select id="year" class="form-input form-select" required><option value="">Year</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option></select></div>
+        <div class="form-group"><label class="form-label" for="semester">Semester</label><select id="semester" class="form-input form-select" required><option value="">Sem</option><option value="1">1st Semester</option><option value="2">2nd Semester</option><option value="3">3rd Semester</option><option value="4">4th Semester</option><option value="5">5th Semester</option><option value="6">6th Semester</option><option value="7">7th Semester</option><option value="8">8th Semester</option></select></div>
+        <div class="form-group"><label class="form-label" for="examType">Exam Type</label><select id="examType" class="form-input form-select" required><option value="">Select exam type</option><option value="Mid Semester">Mid Semester</option><option value="End Semester">End Semester</option><option value="Quiz">Quiz</option><option value="Assignment">Assignment</option><option value="Lab">Lab</option><option value="Other">Other</option></select></div>
+        <div class="form-group"><label class="form-label">Upload File</label><div class="file-upload" onclick="document.getElementById('fileInput').click()"><div id="fileText">Choose File</div><div id="fileName" style="display: none;"></div><input type="file" id="fileInput" class="file-input" accept=".pdf,.jpg,.jpeg,.png" required></div><div class="file-info">Supported formats: JPG, PNG, PDF (Max 10MB)</div></div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeUploadModal()">Cancel</button>
+          <button type="submit" class="btn-upload" id="uploadBtn">
+            <span id="uploadText">Upload & Process</span>
+            <div class="loading" id="uploadLoading">
+              <div class="spinner"></div>
+              <span>Uploading...</span>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+     <!-- AI Assistant Link -->
+   <div class="ai-assistant-link">
+     <a href="chatbot.html" class="ai-assistant-btn">
+       <span class="ai-icon">🤖</span>
+       <span class="ai-text">AI Study Assistant</span>
+     </a>
+   </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="firebase-upload.js"></script>
+  <script type="module" src="search.js"></script>
+  <script type="module" src="splashscreen.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById('toggle-dark');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        toggleBtn.textContent = '🌞';
+      } else {
+        body.classList.remove('dark-mode');
+        toggleBtn.textContent = '🌙';
+      }
+      toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+          toggleBtn.textContent = '🌞';
+          localStorage.setItem('theme', 'dark');
+        } else {
+          toggleBtn.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
+  <script>
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+  if (link.href.includes(`${currentPath.split('/').pop()}`)) {
+
+      link.classList.add('active');
+    }
+  });
+
+  // Feature click handler
+  function handleFeatureClick(featureType) {
+    // Hide all other options first
+    const allOptions = document.querySelectorAll('.feature-options');
+    allOptions.forEach(option => {
+      option.style.display = 'none';
+    });
+    
+    // Show the clicked feature's options
+    const targetOptions = document.getElementById(featureType + '-options');
+    if (targetOptions) {
+      targetOptions.style.display = 'block';
+    }
+  }
+
+     // College dropdown handler
+   function handleCollegeChange() {
+     const collegeSelect = document.getElementById('college');
+     const collegeCustom = document.getElementById('college-custom');
+     
+     if (collegeSelect.value === 'Other') {
+       collegeCustom.style.display = 'block';
+       collegeCustom.required = true;
+       collegeSelect.required = false;
+     } else {
+       collegeCustom.style.display = 'none';
+       collegeCustom.required = false;
+       collegeSelect.required = true;
+     }
+   }
+</script>
+</body>
+</html>

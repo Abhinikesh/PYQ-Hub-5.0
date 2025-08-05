@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="loginsignup.css">
+</head>
+<body>
+
+  <!-- 🌗 Theme Toggle Button -->
+  <div class="theme-toggle">
+    <input type="checkbox" id="darkModeToggle" hidden>
+    <label for="darkModeToggle" class="emoji-toggle">🌞</label>
+  </div>
+
+  <!-- 🆘 Support Center -->
+  <div class="support-center">
+    <div class="support-icon">💬</div>
+    <div class="support-dropdown">
+      <div class="support-header">
+        <h3>Support Center</h3>
+        <p>Need help? We're here for you!</p>
+      </div>
+      <div class="support-options">
+        <a href="support.html" class="support-option">
+          <span class="support-icon-small">📧</span>
+          <span>Email Support</span>
+        </a>
+        <a href="support.html" class="support-option">
+          <span class="support-icon-small">📞</span>
+          <span>Live Chat</span>
+        </a>
+        <a href="support.html" class="support-option">
+          <span class="support-icon-small">❓</span>
+          <span>FAQ</span>
+        </a>
+        <a href="support.html" class="support-option">
+          <span class="support-icon-small">📚</span>
+          <span>Help Center</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔐 Sign Up Form -->
+  <div class="form_area">
+    <p class="title">Sign up to PYQ Hub</p>
+    <form id="signup-form">
+
+      <!-- 👤 Name Input -->
+      <div class="form_group">
+        <label class="sub_title" for="name">Name</label>
+        <input id="name" class="form_style" type="text" placeholder="Enter your full name" required>
+      </div>
+
+      <!-- 📧 Email Input -->
+      <div class="form_group">
+        <label class="sub_title" for="signup-email">Email</label>
+        <input id="signup-email" class="form_style" type="email" placeholder="Enter your email" required>
+      </div>
+
+      <!-- 🔒 Password Input -->
+      <div class="form_group">
+        <label class="sub_title" for="signup-password">Password</label>
+        <input id="signup-password" class="form_style" type="password" placeholder="Enter your password" required>
+      </div>
+
+      <!-- ✅ Submit Button -->
+      <button type="submit" class="btn">SIGN UP</button>
+    </form>
+
+    <!-- 🔁 Redirect to Login -->
+    <p>Already have an account? <a href="login.html" class="link">Login here</a></p>
+  </div>
+
+  <!-- 🌙 Dark Mode Toggle Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.getElementById("darkModeToggle");
+      const emojiToggle = document.querySelector(".emoji-toggle");
+      const body = document.body;
+      
+      // Check for saved theme preference or default to light mode
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add("dark");
+        emojiToggle.textContent = "🌙";
+      } else {
+        body.classList.add("light");
+        emojiToggle.textContent = "🌞";
+      }
+
+      toggle.addEventListener("change", () => {
+        // Toggle dark mode on body
+        body.classList.toggle("dark");
+        body.classList.toggle("light");
+        
+        // Change emoji based on theme
+        if (body.classList.contains("dark")) {
+          emojiToggle.textContent = "🌙";
+          localStorage.setItem('theme', 'dark');
+        } else {
+          emojiToggle.textContent = "🌞";
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
+
+  <!-- 🔐 Firebase Sign Up Logic -->
+  <script type="module" src="firebase-login.js"></script>
+</body>
+</html>
